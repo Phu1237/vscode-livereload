@@ -57,7 +57,7 @@ Open VS Code user setting by pressing `CTRL+,` and set the following as you need
 |`delayForUpdate`|`integer`|To add a delay (in miliseconds) between when livereload detects a change to the filesystem and when it notifies the browser.|
 |`exts`|`string`|To include additional extentions that you want to observe e.g. `jade,scss`.|
 |`excludes`|`string`|To specify additional exclude patterns e.g. `html, images`.|
-|`includes`|`array`|To specify additional include patterns e.g. `['**/*']`.|
+|`includes`|`array`|To specify additional include patterns e.g. `['**/*','**/views/**/*.blade.php']`.|
 
 ### Example
 

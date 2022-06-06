@@ -117,7 +117,8 @@ export default class Server extends EventEmitter {
 	}
 
 	public watch(path: any) {
-		this.debug(`Watching ${path}...`);
+		this.debug('Watching ' + String(path) + '...');
+
 
 		this.path = path;
 
@@ -176,7 +177,7 @@ export default class Server extends EventEmitter {
 	private sendAllClients(data: any) {
 		let ref = this.wsServer.clients;
 		let results = [];
-		this.debug(`Sending to ${ref.length} clients...`);
+		this.debug(`Sending to ${ref.size} clients...`);
 
 		for (let socket of ref) {
 			results.push(socket.send(data, (() => {

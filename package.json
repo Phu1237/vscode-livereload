@@ -2,7 +2,7 @@
 	"name": "live-reload",
 	"displayName": "Live Reload",
 	"description": "Live Reload plugin for VS Code",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"publisher": "Phu1237",
 	"author": {
 		"name": "Phu1237",
@@ -85,7 +85,7 @@
 					"default": [
 						"**/*"
 					],
-					"description": "To specify additional exclusion patterns e.g. html, images."
+					"description": "To specify additional include patterns e.g. ['**/*','**/views/**/*.blade.php']."
 				}
 			}
 		}
