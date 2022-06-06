@@ -85,7 +85,7 @@
 					"default": [
 						"**/*"
 					],
-					"description": "To specify additional include patterns e.g. ['**/*','**/views/**/*.blade.php']."
+					"description": "To specify additional include patterns. file, dir, glob, or array. e.g. ['**/*','**/views/**/*.blade.php']."
 				}
 			}
 		}
