@@ -1,70 +1,87 @@
-# livereload README
+<h1 align="center">
+    <img src="https://i.imgur.com/Po1oqJ4.png" alt="A web browser page reloading plugin for the VS Code editor" />
+    <br/> Live Reload for VS Code
+</h1>
 
-This is the README for your extension "livereload". After writing up a brief description, we recommend including the following sections.
+<p align="center">
+    A web browser page reloading plugin for the VS Code editor.<br/>
+	Based on <a href="https://marketplace.visualstudio.com/items?itemName=ziishaned.livereload">LiveReload for VS Code</a>
+</p>
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Reloads web pages when any file is created, removed or modified.
+- Applies changes without reloading when any CSS or image changed.
+- Works with LiveReload extension.
 
-For example if there is an image subfolder under your extension project workspace:
+## Installing
 
-\!\[feature X\]\(images/feature-x.png\)
+You can install the latest version of the extension via the Visual Studio Marketplace [here](https://marketplace.visualstudio.com/items?itemName=phu1237.livereload).
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+> Restart VS Code _(if required)_
 
-## Requirements
+## Usage
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+You can use this by either adding a snippet of code to the bottom of your HTML pages or installing the Browser Extensions.
 
-## Extension Settings
+### Browser extension
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+Install the LiveReload browser plugins by visiting [LiveReload Extensions](http://livereload.com/extensions/).
 
-For example:
+### Add code to the page
 
-This extension contributes the following settings:
+You can use VS Code to insert the script tag via `Ctrl+Shift+P` add type `livereload.js` and the script tag is added to your HTML document.
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+Or manually add the following script to your HTML document.
 
-## Known Issues
+```html
+<script>document.write('<script src="http://'
+    + (location.host || 'localhost').split(':')[0]
+    + ':35729/livereload.js?snipver=1"></'
+    + 'script>')</script>
+```
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+> Note: If you are using a different port other than 35729 you will need to change the above script.
 
-## Release Notes
+## Settings
 
-Users appreciate release notes as you update your extension.
+Open VS Code user setting by pressing `CTRL+,` and set the following as you need:
 
-### 1.0.0
+|Name|Type|Details|
+|-|-|-|
+|`debug`|`boolean`|To show debug messages in console.|
+|`port`|`integer`|To specify the listening port.|
+|`useHTTPS`|`object`|An optional object of options to be passed to `https.createServer` (if not provided, `http.createServer` is used instead)|
+|`applyCSSLive`|`boolean`|Tells LiveReload to reload CSS files in the background instead of refreshing the page. The default for this is true.|
+|`applyImageLive`|`boolean`|Tells LiveReload to reload image files in the background instead of refreshing the page. The default for this is true.|
+|`delayForUpdate`|`integer`|To add a delay (in miliseconds) between when livereload detects a change to the filesystem and when it notifies the browser.|
+|`exts`|`string`|To include additional extentions that you want to observe e.g. `jade,scss`.|
+|`excludes`|`string`|To specify additional exclude patterns e.g. `html, images`.|
+|`includes`|`array`|To specify additional include patterns e.g. `['**/*']`.|
 
-Initial release of ...
+### Example
 
-### 1.0.1
+```json
+{
+    "livereload.debug": false,
+    "livereload.port": 35729,
+    "livereload.useHTTPS": {},
+    "livereload.applyCSSLive": true,
+    "livereload.applyImageLive": true,
+    "livereload.delayForUpdate": 0,
+    "livereload.exts": "html,htm,css,js,png,gif,jpg,php,php5,py,rb,erb,coffee",
+    "livereload.exclusions": ".DS_Store,.gitignore,.git,.svn,.hg",
+	"livereload.includes": [
+		"**/*"
+	]
+}
+```
 
-Fixed issue #.
+## Note
 
-### 1.1.0
+- The LiveReload extension only works with default port `35729`.
 
-Added features X, Y, and Z.
+## License
 
------------------------------------------------------------------------------------------------------------
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+MIT © [Phu1237](https://twitter.com/Phu1237)
+MIT © [Zeeshan Ahmad](https://twitter.com/ziishaned)

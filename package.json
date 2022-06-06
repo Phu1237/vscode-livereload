@@ -1,25 +1,106 @@
 {
-  "name": "livereload",
-	"displayName": "LiveReload",
-	"description": "LiveReload plugin for VS Code",
-	"version": "0.0.1",
+	"name": "livereload",
+	"displayName": "Live Reload",
+	"description": "Live Reload plugin for VS Code",
+	"version": "1.0.0",
+	"publisher": "Phu1237",
+	"author": {
+		"name": "Phu1237",
+		"url": "https://github.com/Phu1237"
+	},
 	"engines": {
 		"vscode": "^1.67.0"
 	},
+	"galleryBanner": {
+		"color": "#2d4794",
+		"theme": "dark"
+	},
+	"keywords": [
+		"live reload",
+		"live preview"
+	],
 	"categories": [
 		"Other"
 	],
 	"activationEvents": [
-        "onCommand:livereload.helloWorld"
+		"onCommand:extension.livereload"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "livereload.helloWorld",
-				"title": "Hello World"
+				"command": "extension.livereload",
+				"title": "LiveReload: Enable/disable server"
 			}
-		]
+		],
+		"configuration": {
+			"type": "object",
+			"title": "LiveReload configuration",
+			"properties": {
+				"livereload.debug": {
+					"type": "boolean",
+					"default": false,
+					"description": "To show debug messages in console."
+				},
+				"livereload.port": {
+					"type": "integer",
+					"default": 35729,
+					"description": "To specify the listening port."
+				},
+				"livereload.useHTTPS": {
+					"type": [
+						"object",
+						"null"
+					],
+					"default": null,
+					"description": "An optional object of options to be passed to https.createServer (if not provided, http.createServer is used instead)."
+				},
+				"livereload.applyCSSLive": {
+					"type": "boolean",
+					"default": true,
+					"description": "Tells LiveReload to reload CSS files in the background instead of refreshing the page. The default for this is true."
+				},
+				"livereload.applyImageLive": {
+					"type": "boolean",
+					"default": true,
+					"description": "Tells LiveReload to reload image files in the background instead of refreshing the page. The default for this is true."
+				},
+				"livereload.delayForUpdate": {
+					"type": "integer",
+					"default": 0,
+					"description": "To add a delay (in miliseconds) between when livereload detects a change to the filesystem and when it notifies the browser."
+				},
+				"livereload.exts": {
+					"type": "string",
+					"default": "html,htm,css,js,png,gif,jpg,php,php5,py,rb,erb,coffee,twig",
+					"description": "To include additional extentions that you want to observe e.g. jade,scss."
+				},
+				"livereload.excludes": {
+					"type": "string",
+					"default": ".DS_Store,.gitignore,.git,.svn,.hg",
+					"description": "To specify additional exclusion patterns e.g. html, images."
+				},
+				"livereload.includes": {
+					"type": "array",
+					"default": [
+						"**/*"
+					],
+					"description": "To specify additional exclusion patterns e.g. html, images."
+				}
+			}
+		}
+	},
+	"preview": false,
+	"license": "MIT",
+	"icon": "media/logo.png",
+	"homepage": "https://github.com/phu1237/vscode-livereload",
+	"bugs": {
+		"url": "https://github.com/phu1237/vscode-livereload/issues",
+		"email": "phu1237@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/phu1237/vscode-livereload.git"
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
@@ -30,16 +111,23 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.67.0",
 		"@types/glob": "^7.2.0",
+		"@types/lodash": "^4.14.182",
 		"@types/mocha": "^9.1.1",
 		"@types/node": "16.x",
+		"@types/vscode": "^1.67.0",
+		"@types/ws": "^8.5.3",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
 		"@typescript-eslint/parser": "^5.27.0",
+		"@vscode/test-electron": "^2.1.3",
 		"eslint": "^8.16.0",
 		"glob": "^8.0.3",
 		"mocha": "^10.0.0",
-		"typescript": "^4.7.2",
-		"@vscode/test-electron": "^2.1.3"
+		"typescript": "^4.7.2"
+	},
+	"dependencies": {
+		"chokidar": "^3.5.3",
+		"lodash": "^4.17.21",
+		"ws": "^8.7.0"
 	}
 }
