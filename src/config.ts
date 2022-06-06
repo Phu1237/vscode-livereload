@@ -19,7 +19,7 @@ export default function () {
 
 		delayForUpdate: workspace.getConfiguration().get('live-reload.delayForUpdate') || 0,
 
-		exts: workspace.getConfiguration().get('live-reloadt.exts') ? _.split(workspace.getConfiguration().get('live-reloadt.exts'), ',') : '',
+		exts: workspace.getConfiguration().get('live-reload.exts') ? _.split(workspace.getConfiguration().get('live-reload.exts'), ',') : '',
 
 		excludes: workspace.getConfiguration().get('live-reload.excludes') ? _.split(workspace.getConfiguration().get('live-reload.excludes'), ',') : '',
 
@@ -29,7 +29,7 @@ export default function () {
 	config.exts = _.chain(config.exts).map(ext => ext.trim()).concat(DEFAULT_EXTS).uniq().value();
 
 	config.excludes = _.chain(config.excludes).map(ex => ex.trim()).concat(DEFAULT_EXCLUDES).uniq().value();
-	config.includes = _.indexOf(config.includes, '**/*') ? DEFAULT_INCLUDES : _.uniq(config.includes);
+	config.includes = _.indexOf(config.includes, '**/*') !== -1 ? DEFAULT_INCLUDES : _.uniq(config.includes);
 
 	return config;
 }
