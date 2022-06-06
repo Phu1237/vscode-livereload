@@ -1,5 +1,5 @@
 {
-	"name": "livereload",
+	"name": "live-reload",
 	"displayName": "Live Reload",
 	"description": "Live Reload plugin for VS Code",
 	"version": "1.0.0",
@@ -23,31 +23,31 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.livereload"
+		"onCommand:extension.live-reload"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.livereload",
-				"title": "LiveReload: Enable/disable server"
+				"command": "extension.live-reload",
+				"title": "Live Reload: Enable/disable server"
 			}
 		],
 		"configuration": {
 			"type": "object",
-			"title": "LiveReload configuration",
+			"title": "Live Reload",
 			"properties": {
-				"livereload.debug": {
+				"live-reload.debug": {
 					"type": "boolean",
 					"default": false,
 					"description": "To show debug messages in console."
 				},
-				"livereload.port": {
+				"live-reload.port": {
 					"type": "integer",
 					"default": 35729,
 					"description": "To specify the listening port."
 				},
-				"livereload.useHTTPS": {
+				"live-reload.useHTTPS": {
 					"type": [
 						"object",
 						"null"
@@ -55,32 +55,32 @@
 					"default": null,
 					"description": "An optional object of options to be passed to https.createServer (if not provided, http.createServer is used instead)."
 				},
-				"livereload.applyCSSLive": {
+				"live-reload.applyCSSLive": {
 					"type": "boolean",
 					"default": true,
-					"description": "Tells LiveReload to reload CSS files in the background instead of refreshing the page. The default for this is true."
+					"description": "Tells Live Reload to reload CSS files in the background instead of refreshing the page. The default for this is true."
 				},
-				"livereload.applyImageLive": {
+				"live-reload.applyImageLive": {
 					"type": "boolean",
 					"default": true,
-					"description": "Tells LiveReload to reload image files in the background instead of refreshing the page. The default for this is true."
+					"description": "Tells Live Reload to reload image files in the background instead of refreshing the page. The default for this is true."
 				},
-				"livereload.delayForUpdate": {
+				"live-reload.delayForUpdate": {
 					"type": "integer",
 					"default": 0,
-					"description": "To add a delay (in miliseconds) between when livereload detects a change to the filesystem and when it notifies the browser."
+					"description": "To add a delay (in miliseconds) between when live reload detects a change to the filesystem and when it notifies the browser."
 				},
-				"livereload.exts": {
+				"live-reload.exts": {
 					"type": "string",
 					"default": "html,htm,css,js,png,gif,jpg,php,php5,py,rb,erb,coffee,twig",
 					"description": "To include additional extentions that you want to observe e.g. jade,scss."
 				},
-				"livereload.excludes": {
+				"live-reload.excludes": {
 					"type": "string",
 					"default": ".DS_Store,.gitignore,.git,.svn,.hg",
 					"description": "To specify additional exclusion patterns e.g. html, images."
 				},
-				"livereload.includes": {
+				"live-reload.includes": {
 					"type": "array",
 					"default": [
 						"**/*"

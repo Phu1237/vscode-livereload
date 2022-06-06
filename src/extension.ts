@@ -8,7 +8,7 @@ import LiveReload from './LiveReload';
 export function activate(context: ExtensionContext) {
 	const livereload = new LiveReload();
 
-	context.subscriptions.push(commands.registerCommand('extension.livereload', () => {
+	context.subscriptions.push(commands.registerCommand('extension.live-reload', () => {
 		livereload.createServer();
 	}));
 }

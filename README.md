@@ -16,7 +16,7 @@
 
 ## Installing
 
-You can install the latest version of the extension via the Visual Studio Marketplace [here](https://marketplace.visualstudio.com/items?itemName=phu1237.livereload).
+You can install the latest version of the extension via the Visual Studio Marketplace [here](https://marketplace.visualstudio.com/items?itemName=phu1237.live-reload).
 
 > Restart VS Code _(if required)_
 
@@ -63,15 +63,15 @@ Open VS Code user setting by pressing `CTRL+,` and set the following as you need
 
 ```json
 {
-    "livereload.debug": false,
-    "livereload.port": 35729,
-    "livereload.useHTTPS": {},
-    "livereload.applyCSSLive": true,
-    "livereload.applyImageLive": true,
-    "livereload.delayForUpdate": 0,
-    "livereload.exts": "html,htm,css,js,png,gif,jpg,php,php5,py,rb,erb,coffee",
-    "livereload.exclusions": ".DS_Store,.gitignore,.git,.svn,.hg",
-	"livereload.includes": [
+    "live-reload.debug": false,
+    "live-reload.port": 35729,
+    "live-reload.useHTTPS": {},
+    "live-reload.applyCSSLive": true,
+    "live-reload.applyImageLive": true,
+    "live-reload.delayForUpdate": 0,
+    "live-reload.exts": "html,htm,css,js,png,gif,jpg,php,php5,py,rb,erb,coffee",
+    "live-reload.exclusions": ".DS_Store,.gitignore,.git,.svn,.hg",
+	"live-reload.includes": [
 		"**/*"
 	]
 }
@@ -79,7 +79,7 @@ Open VS Code user setting by pressing `CTRL+,` and set the following as you need
 
 ## Note
 
-- The LiveReload extension only works with default port `35729`.
+- The Live Reload extension only works with default port `35729`.
 
 ## License
 

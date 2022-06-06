@@ -7,23 +7,23 @@ const DEFAULT_INCLUDES: string[] = ['**/*'];
 
 export default function () {
 	let config = {
-		debug: workspace.getConfiguration().get('livereload.debug') || false,
+		debug: workspace.getConfiguration().get('live-reload.debug') || false,
 
-		port: workspace.getConfiguration().get('livereload.port') || 35729,
+		port: workspace.getConfiguration().get('live-reload.port') || 35729,
 
-		https: workspace.getConfiguration().get('livereload.useHTTPS') ? {} : null,
+		https: workspace.getConfiguration().get('live-reload.useHTTPS') ? {} : null,
 
-		applyCSSLive: workspace.getConfiguration().get('livereload.applyCSSLive') || true,
+		applyCSSLive: workspace.getConfiguration().get('live-reload.applyCSSLive') || true,
 
-		applyImageLive: workspace.getConfiguration().get('livereload.applyImageLive') || true,
+		applyImageLive: workspace.getConfiguration().get('live-reload.applyImageLive') || true,
 
-		delayForUpdate: workspace.getConfiguration().get('livereload.delayForUpdate') || 0,
+		delayForUpdate: workspace.getConfiguration().get('live-reload.delayForUpdate') || 0,
 
-		exts: workspace.getConfiguration().get('livereloadt.exts') ? _.split(workspace.getConfiguration().get('livereloadt.exts'), ',') : '',
+		exts: workspace.getConfiguration().get('live-reloadt.exts') ? _.split(workspace.getConfiguration().get('live-reloadt.exts'), ',') : '',
 
-		excludes: workspace.getConfiguration().get('livereload.excludes') ? _.split(workspace.getConfiguration().get('livereload.excludes'), ',') : '',
+		excludes: workspace.getConfiguration().get('live-reload.excludes') ? _.split(workspace.getConfiguration().get('live-reload.excludes'), ',') : '',
 
-		includes: workspace.getConfiguration().get('livereload.includes') ? workspace.getConfiguration().get('livereload.includes', DEFAULT_INCLUDES) : DEFAULT_INCLUDES,
+		includes: workspace.getConfiguration().get('live-reload.includes') ? workspace.getConfiguration().get('live-reload.includes', DEFAULT_INCLUDES) : DEFAULT_INCLUDES,
 	};
 
 	config.exts = _.chain(config.exts).map(ext => ext.trim()).concat(DEFAULT_EXTS).uniq().value();

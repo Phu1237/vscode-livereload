@@ -6,7 +6,7 @@ export class StatusBarUi {
 	private static get statusbar() {
 		if (!StatusBarUi._statusBarItem) {
 			StatusBarUi._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
-			StatusBarUi._statusBarItem.command = 'extension.livereload';
+			StatusBarUi._statusBarItem.command = 'extension.live-reload';
 			this.statusbar.show();
 		}
 
@@ -14,27 +14,27 @@ export class StatusBarUi {
 	}
 
 	public static listening() {
-		StatusBarUi.statusbar.text = 'The LiveReload plugin has been enabled.';
+		StatusBarUi.statusbar.text = 'The Live Reload plugin has been enabled.';
 		StatusBarUi.clear();
 	}
 
 	public static stopListening() {
-		StatusBarUi.statusbar.text = 'The LiveReload plugin has been disabled.';
+		StatusBarUi.statusbar.text = 'The Live Reload plugin has been disabled.';
 		StatusBarUi.clear();
 	}
 
 	public static connected() {
-		StatusBarUi.statusbar.text = 'LiveReload client connected.';
+		StatusBarUi.statusbar.text = 'Live Reload client connected.';
 		StatusBarUi.clear();
 	}
 
 	public static disconnected() {
-		StatusBarUi.statusbar.text = 'LiveReload client disconnected.';
+		StatusBarUi.statusbar.text = 'Live Reload client disconnected.';
 		StatusBarUi.clear();
 	}
 
 	public static refresh() {
-		StatusBarUi.statusbar.text = 'LiveReload refresh from VS Code LiveReload.';
+		StatusBarUi.statusbar.text = 'Live Reload refresh from VS Code Live Reload.';
 		StatusBarUi.clear();
 	}
 
