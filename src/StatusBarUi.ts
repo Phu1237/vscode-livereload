@@ -2,6 +2,7 @@ import { StatusBarItem, window, StatusBarAlignment } from 'vscode';
 
 export class StatusBarUi {
 	private static _statusBarItem: StatusBarItem;
+	private static isRefreshing: boolean;
 
 	private static get statusbar() {
 		if (!StatusBarUi._statusBarItem) {
@@ -24,24 +25,32 @@ export class StatusBarUi {
 	}
 
 	public static connected() {
-		StatusBarUi.statusbar.text = 'Live Reload client connected.';
+		if (this.isRefreshing) {
+			this.isRefreshing = false;
+			StatusBarUi.statusbar.text = 'Live Reload: Done.';
+			StatusBarUi.clear(4000);
+			return;
+		}
+		StatusBarUi.statusbar.text = 'Live Reload: Client connected.';
 		StatusBarUi.clear();
 	}
 
 	public static disconnected() {
-		StatusBarUi.statusbar.text = 'Live Reload client disconnected.';
+		StatusBarUi.statusbar.text = 'Live Reload: Client disconnected.';
 		StatusBarUi.clear();
 	}
 
 	public static refresh() {
-		StatusBarUi.statusbar.text = 'Live Reload refresh from VS Code Live Reload.';
+		StatusBarUi.statusbar.text = 'Live Reload: Refresh from VS Code Live Reload.';
 		StatusBarUi.clear();
+		StatusBarUi.statusbar.text = 'Live Reload: Refreshing...';
+		this.isRefreshing = true;
 	}
 
-	private static clear() {
+	private static clear(time = 1800) {
 		setTimeout(() => {
 			StatusBarUi.statusbar.text = '';
-		}, 1800);
+		}, time);
 	}
 
 	dispose() {

@@ -23,7 +23,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.live-reload"
+		"onStartupFinished"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -37,6 +37,11 @@
 			"type": "object",
 			"title": "Live Reload",
 			"properties": {
+				"live-reload.autoStart": {
+					"type": "boolean",
+					"default": false,
+					"description": "Auto start the server after open VS Code."
+				},
 				"live-reload.debug": {
 					"type": "boolean",
 					"default": false,
