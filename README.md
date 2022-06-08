@@ -13,6 +13,8 @@
 - Reloads web pages when any file is created, removed or modified.
 - Applies changes without reloading when any CSS or image changed.
 - Works with LiveReload extension.
+- Includes list so that the page just be reloaded when the saved file name/path fits with your setting.
+- Setting to Auto start the extension after opening the VS Code.
 
 ## Installing
 
@@ -30,9 +32,7 @@ Install the LiveReload browser plugins by visiting [LiveReload Extensions](http:
 
 ### Add code to the page
 
-You can use VS Code to insert the script tag via `Ctrl+Shift+P` add type `livereload.js` and the script tag is added to your HTML document.
-
-Or manually add the following script to your HTML document.
+Manually add the following script to your HTML document.
 
 ```html
 <script>document.write('<script src="http://'
@@ -49,6 +49,7 @@ Open VS Code user setting by pressing `CTRL+,` and set the following as you need
 
 |Name|Type|Details|
 |-|-|-|
+|`autoStart`|`boolean`|Auto start the server after open VS Code.|
 |`debug`|`boolean`|To show debug messages in console.|
 |`port`|`integer`|To specify the listening port.|
 |`useHTTPS`|`object`|An optional object of options to be passed to `https.createServer` (if not provided, `http.createServer` is used instead)|

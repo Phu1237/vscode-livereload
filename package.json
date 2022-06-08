@@ -2,7 +2,7 @@
 	"name": "live-reload",
 	"displayName": "Live Reload",
 	"description": "Live Reload plugin for VS Code",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"publisher": "Phu1237",
 	"author": {
 		"name": "Phu1237",
