@@ -2,7 +2,7 @@
 	"name": "live-reload",
 	"displayName": "Live Reload",
 	"description": "Live Reload plugin for VS Code",
-	"version": "1.0.2",
+	"version": "1.1.0",
 	"publisher": "Phu1237",
 	"author": {
 		"name": "Phu1237",
@@ -74,11 +74,6 @@
 					"type": "integer",
 					"default": 0,
 					"description": "To add a delay (in miliseconds) between when live reload detects a change to the filesystem and when it notifies the browser."
-				},
-				"live-reload.exts": {
-					"type": "string",
-					"default": "html,htm,css,js,png,gif,jpg,php,php5,py,rb,erb,coffee,twig",
-					"description": "To include additional extentions that you want to observe e.g. jade,scss."
 				},
 				"live-reload.excludes": {
 					"type": "string",
