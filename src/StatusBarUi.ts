@@ -8,6 +8,7 @@ export class StatusBarUi {
 		if (!StatusBarUi._statusBarItem) {
 			StatusBarUi._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
 			StatusBarUi._statusBarItem.command = 'extension.live-reload';
+			this.isRefreshing = false;
 			this.statusbar.show();
 		}
 
@@ -36,21 +37,22 @@ export class StatusBarUi {
 	}
 
 	public static disconnected() {
-		StatusBarUi.statusbar.text = 'Live Reload: Client disconnected.';
-		StatusBarUi.clear();
+		if (!this.isRefreshing) {
+			StatusBarUi.statusbar.text = 'Live Reload: Client disconnected.';
+			StatusBarUi.clear();
+		}
 	}
 
 	public static refresh() {
-		StatusBarUi.statusbar.text = 'Live Reload: Refresh from VS Code Live Reload.';
-		StatusBarUi.clear();
 		StatusBarUi.statusbar.text = 'Live Reload: Refreshing...';
 		this.isRefreshing = true;
 	}
 
-	private static clear(time = 1800) {
+	private static clear(time = 1800, callback = () => { }) {
 		setTimeout(() => {
 			StatusBarUi.statusbar.text = '';
 		}, time);
+		callback();
 	}
 
 	dispose() {
