@@ -56,7 +56,6 @@ Open VS Code user setting by pressing `CTRL+,` and set the following as you need
 |`applyCSSLive`|`boolean`|Tells LiveReload to reload CSS files in the background instead of refreshing the page. The default for this is true.|
 |`applyImageLive`|`boolean`|Tells LiveReload to reload image files in the background instead of refreshing the page. The default for this is true.|
 |`delayForUpdate`|`integer`|To add a delay (in miliseconds) between when livereload detects a change to the filesystem and when it notifies the browser.|
-|`exts`|`string`|To include additional extentions that you want to observe e.g. `jade,scss`.|
 |`excludes`|`string`|To specify additional exclude patterns e.g. `html, images`.|
 |`includes`|`array`|To specify additional include patterns. `file`, `dir`, `glob`, or `array`. e.g. `['**/*','**/views/**/*.blade.php']`.|
 
@@ -70,7 +69,6 @@ Open VS Code user setting by pressing `CTRL+,` and set the following as you need
     "live-reload.applyCSSLive": true,
     "live-reload.applyImageLive": true,
     "live-reload.delayForUpdate": 0,
-    "live-reload.exts": "html,htm,css,js,png,gif,jpg,php,php5,py,rb,erb,coffee",
     "live-reload.exclusions": ".DS_Store,.gitignore,.git,.svn,.hg",
 	"live-reload.includes": [
 		"**/*"

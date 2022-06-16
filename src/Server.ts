@@ -144,17 +144,12 @@ export default class Server extends EventEmitter {
 	}
 
 	private filterRefresh(filepath: string) {
-		const exts = this.config.exts;
-		let fileext = path.extname(filepath).substring(1);
-
-		if (exts.indexOf(fileext) !== -1) {
-			if (this.config.delay) {
-				setTimeout(() => {
-					return this.refresh(filepath);
-				}, this.config.delay);
-			} else {
+		if (this.config.delay) {
+			setTimeout(() => {
 				return this.refresh(filepath);
-			}
+			}, this.config.delay);
+		} else {
+			return this.refresh(filepath);
 		}
 	}
 
