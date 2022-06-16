@@ -28,7 +28,7 @@ You can use this by either adding a snippet of code to the bottom of your HTML p
 
 ### Browser extension
 
-Install the LiveReload browser plugins by visiting [LiveReload Extensions](http://livereload.com/extensions/).
+Install the LiveReload browser plugins by visiting [LiveReload Extensions](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei).
 
 ### Add code to the page
 
