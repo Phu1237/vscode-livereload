@@ -154,19 +154,22 @@ export default class Server extends EventEmitter {
 	}
 
 	private refresh(filepath: string) {
-		this.debug(`Reloading: ${filepath}`);
-		let data = JSON.stringify({
-			command: 'reload',
-			path: filepath,
-			liveCSS: this.config.applyCSSLive,
-			liveImg: this.config.applyImgLive
-		});
+		if (this.wsServer.clients.size > 0) {
+			this.debug(`Reloading: ${filepath}`);
+			let data = JSON.stringify({
+				command: 'reload',
+				path: filepath,
+				liveCSS: this.config.applyCSSLive,
+				liveImg: this.config.applyImgLive
+			});
 
-		this.emit('refresh');
+			this.emit('refresh');
 
-		setTimeout(() => {
-			return this.sendAllClients(data);
-		}, this.config.delayForUpdate);
+			setTimeout(() => {
+				return this.sendAllClients(data);
+			}, this.config.delayForUpdate);
+		}
+		return [];
 	}
 
 	private sendAllClients(data: any) {
