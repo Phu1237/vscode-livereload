@@ -2,6 +2,10 @@
 
 All notable changes to the "live-reload" extension will be documented in this file.
 
+## [1.1.1]
+
+- Fix extension refreshing when no client connected
+
 ## [1.1.0]
 
 - Remove `exts` setting (because this may conflict, make the extension not working right)
